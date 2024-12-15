@@ -1,4 +1,4 @@
-# IT Lab Projesi - <Proje Fabrikası/>
+# IT Lab Projesi 
 
 ## 📌 Geliştirme Ortamı
 Bu proje, IT Lab staj programı kapsamında işletmecilerin ürün ve hizmetlerini tanıtabileceği, teklif alıp verebileceği ve pazarlama faaliyetlerini kolaylaştırabileceği bir sosyal platform geliştirme çalışmasıdır.
@@ -16,7 +16,7 @@ Sistem, aşağıdaki özellikleri içerecek şekilde tasarlanmıştır:
 Projenin ilerleyen aşamalarında, tüm bu özelliklerin tam olarak hayata geçirilmesi planlanmaktadır.
 
 
-# IT Lab Project - <Project Factory/>
+# IT Lab Project 
 
 ## 📌 Development Environment
 This project is being developed as part of the IT Lab internship program to provide a social platform where business owners can showcase their products and services, request and make offers, and streamline their marketing activities.
