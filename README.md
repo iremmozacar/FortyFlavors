@@ -1,34 +1,59 @@
-# IT Lab Projesi 
+Proje Hikayesi: Yerel İşletmeler için Sosyal Yemek Platformu
+Projenin Konusu
+Bu platform, yerel işletmecilerin (restoranlar, kafeler, pastaneler vb.) ürün ve hizmetlerini dijital ortama taşıyabilecekleri, sipariş alabilecekleri ve kampanyalar düzenleyebilecekleri bir sosyal ticaret ağıdır. Platform, işletmecilere dijitalleşme fırsatı sunarken kullanıcılar için hızlı, güvenilir ve sosyal bir alışveriş deneyimi sağlar.
 
-## 📌 Geliştirme Ortamı
-Bu proje, IT Lab staj programı kapsamında işletmecilerin ürün ve hizmetlerini tanıtabileceği, teklif alıp verebileceği ve pazarlama faaliyetlerini kolaylaştırabileceği bir sosyal platform geliştirme çalışmasıdır.
+Kullanıcılar platformda ürün veya hizmet ekleyemez; yalnızca işletmecilerin listelediği ürünlere göz atabilir, sipariş verebilir ve sipariş sonrası geri bildirimde bulunabilir. İşletmeciler, menülerini ve kampanyalarını özgürce düzenleyebilir, toplu sipariş taleplerini yönetebilir.
 
-Sistem, aşağıdaki özellikleri içerecek şekilde tasarlanmıştır:
+Senaryolar
+Senaryo 1: Yönetici Paneli ve Onay Süreci
+Ali Bey, yeni bir kafe işletmesini sisteme kaydetmek istiyor. Üyelik başvurusunda işletmesinin detaylarını (örneğin işletme adı, kategori, iletişim bilgileri) dolduruyor. Platform sahibi, Ali Bey’in bilgilerini inceliyor ve üyeliğini onaylıyor. Onaylanmayan işletmeciler sisteme erişemiyor.
 
-### Planlanan Özellikler:
-- **Kullanıcı Kayıt ve Giriş Sistemi:** Kullanıcıların sisteme üye olabilmesi ve giriş yapabilmesi için e-posta ve şifre doğrulama, üyelik onayı gibi işlemler.
-- **Ürün ve Hizmet Yönetimi:** İşletmecilerin ürün ve hizmetlerini ekleyebilmesi, düzenleyebilmesi ve listeleyebilmesi.
-- **Yorum ve Beğeni Sistemi:** Kullanıcıların diğer işletmecilerin paylaşımlarına yorum yapabilmesi ve beğeni bırakabilmesi.
-- **Arama ve Filtreleme:** Ürün, hizmet veya işletmeciler için detaylı arama ve filtreleme seçenekleri.
-- **Raporlama ve Analiz:** En çok aranan ürünler, en popüler işletmeler ve kullanıcı davranışlarına yönelik raporların oluşturulması.
+Kabul Kriterleri:
+Yönetici paneli işletmecileri onaylama/dışlama özelliklerine sahip olmalı.
+Onaysız işletmeciler sisteme giriş yapamamalı.
+Yönetici panelinde raporlama ve kampanya denetimi yapılabilmeli.
+Senaryo 2: Yerel İşletmelerin Dijitalleşmesi
+Ayşe Hanım, bir butik restoran işletmecisi olarak, yemek menüsünü dijital ortama taşımak istiyor. Platforma üye olduktan ve onay aldıktan sonra restoranının menüsünü sisteme ekliyor. "Günlük Taze Lahmacun Menüsü" ve "Mevsimlik Tatlılar" gibi ürünlerini yalnızca Ayşe Hanım listeleyip düzenleyebiliyor. Kullanıcılar, menüyü inceleyip sipariş verebiliyor ancak ürün ekleme veya düzenleme işlemi yapamıyor.
 
-### Geliştirme Durumu:
-Projenin ilerleyen aşamalarında, tüm bu özelliklerin tam olarak hayata geçirilmesi planlanmaktadır.
+Sipariş sonrası kullanıcılar, işletme hakkında geri bildirim bırakabiliyor. Geri bildirimler işletme profiline puan ve yorum olarak yansıyor.
 
+Kabul Kriterleri:
+İşletmeciler ürünlerini listeleyebilmeli ve düzenleyebilmeli.
+Kullanıcılar, ürünleri inceleyip sipariş verebilmeli.
+Kullanıcılar ürün ekleme ve düzenleme işlemi yapamamalı.
+İşletmeciler kampanya ve indirim özelliklerini menülerine ekleyebilmeli.
+Senaryo 3: Kampanyalar ve İlgi Çekici Paylaşımlar
+Ali Bey, kafe işletmesi için kahvaltı menüsünü tanıtmak istiyor. Platformda "Hafta Sonu Kahvaltı Şöleni %20 İndirimli" şeklinde bir kampanya başlatıyor. Bu kampanya, platformun ana sayfasında yer alarak kullanıcıların ilgisini çekiyor. Ayşe Hanım, bu kampanyayı görüp yorum yapıyor ve çalışanları için toplu bir kahvaltı siparişi veriyor. Sipariş sonrası, menüyü beğendiğini belirterek Ali Bey’in profilinde olumlu bir referans bırakıyor.
 
-# IT Lab Project 
+Kabul Kriterleri:
+İşletmeciler kampanya oluşturma, düzenleme ve silme işlemleri yapabilmeli.
+Kampanyalar görsel, açıklama ve indirim detaylarıyla ana sayfada gösterilmeli.
+Kullanıcılar kampanyalara yorum yapabilmeli ve sipariş oluşturabilmeli.
+Senaryo 4: Mesajlaşma ve Teklif Yönetimi
+Ayşe Hanım, restoranında bir etkinlik düzenlemek için taze ekmek siparişi vermek istiyor. Platform üzerinden Ali Bey’in fırınına mesaj göndererek bir teklif talebinde bulunuyor. Ali Bey, gelen teklif talebini listesinde görüntüleyip Ayşe Hanım’a bir fiyat sunuyor. Anlaşma sağlandıktan sonra sipariş detayları tamamlanıyor.
 
-## 📌 Development Environment
-This project is being developed as part of the IT Lab internship program to provide a social platform where business owners can showcase their products and services, request and make offers, and streamline their marketing activities.
+Kabul Kriterleri:
+Kullanıcılar işletmelere özel mesaj gönderebilmeli.
+İşletmeciler gelen mesajları ve teklif taleplerini listeleyip yönetebilmeli.
+Sipariş tamamlandığında kullanıcılar geri bildirim bırakabilmeli.
+Senaryo 5: Sosyal Ağ ve Trendler
+Ayşe Hanım, platformun ana sayfasında "Trendler" bölümünü incelerken en çok sipariş alan kafe işletmesini görüyor. İşletmenin popüler kahvaltı menüsünü inceleyip sipariş veriyor. Sipariş sonrası geri bildirim bırakıyor ve işletmeyi takip ediyor.
 
-The system is designed to include the following features:
+Kabul Kriterleri:
+Ana sayfada popüler işletme ve kampanyalar sıralanabilmeli.
+Kullanıcılar işletmeleri takip edebilmeli.
+Kullanıcılar takip ettikleri işletmelerin kampanyalarını ana sayfalarında görebilmeli.
+Ek Özellikler
+Raporlama
+Platformun sahibi, en çok sipariş verilen ürünleri, en popüler işletmeleri ve kullanıcıların arama davranışlarını analiz edebilir. Bu raporlar işletmelerin performansını artırmalarına yardımcı olur.
 
-### Planned Features:
-- **User Registration and Login System:** Email and password verification, as well as membership approval, for users to register and access the platform.
-- **Product and Service Management:** Allowing business owners to add, edit, and list their products and services.
-- **Comment and Like System:** Enabling users to comment on and like other business owners' posts.
-- **Search and Filtering:** Providing detailed search and filtering options for products, services, or business profiles.
-- **Reporting and Analysis:** Generating reports on the most searched products, popular businesses, and user activity.
-
-### Development Status:
-In the upcoming stages, these functionalities will be fully realized and integrated into the system.
+Kabul Kriterleri:
+Platformda işletme performansı için raporlama yapılabilmeli.
+İşletmeler, raporlardan faydalanarak ürün ve hizmetlerini geliştirebilmeli.
+Sistem sahibi, kullanıcı davranışlarını analiz ederek platform genelindeki trendleri gözlemleyebilmeli.
+Proje Faydaları
+Yerel Ekonomiye Destek: İşletmeciler kendi müşteri tabanlarını oluşturabilir ve yerel tüketici kitlesine daha etkili ulaşabilir.
+Dijitalleşme Fırsatı: Küçük işletmeler, dijital ortama geçiş yaparak daha geniş bir kitleye hitap edebilir.
+Kullanıcı Deneyimi: Yerel lezzetlere ulaşmak isteyen kullanıcılar için güvenilir ve hızlı bir sipariş sistemi sunar.
+Topluluk Bağları: Yerel işletmeler arasında işbirliği ve dayanışma ortamı oluşur.
+Güven ve Şeffaflık: Geri bildirim ve puanlama sistemleri sayesinde kullanıcılar güvenle alışveriş yapabilir.
