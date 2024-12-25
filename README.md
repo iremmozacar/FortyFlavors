@@ -11,7 +11,7 @@ Kullanıcılar platformda ürün veya hizmet ekleyemez; yalnızca işletmecileri
 - Güvenilir bir sosyal ticaret ağı oluşturmak.
 - Kullanıcılar için hızlı ve şeffaf bir alışveriş deneyimi sunmak.
 
-## Kullanılan Teknolojiler
+## Kullanılacak Teknolojiler
 - **Frontend:** React.js / Angular (Bootstrap ile desteklenmiş)
 - **Backend:** .NET Core Web API
 - **Veritabanı:** MS SQL
