@@ -69,9 +69,9 @@ Ayşe Hanım, platformun ana sayfasında "Trendler" bölümünü incelerken en �
 ## Ek Özellikler
 
 ### Raporlama
-	•	En çok sipariş verilen ürünler, en popüler işletmeler ve kullanıcıların arama davranışları analiz edilir.
-	•	İşletmeler, raporlardan faydalanarak ürün ve hizmetlerini geliştirebilir.
-	•	Sistem sahibi, kullanıcı davranışlarını analiz ederek platform genelindeki trendleri gözlemleyebilir.
+	-	En çok sipariş verilen ürünler, en popüler işletmeler ve kullanıcıların arama davranışları analiz edilir.
+	-	İşletmeler, raporlardan faydalanarak ürün ve hizmetlerini geliştirebilir.
+	-	Sistem sahibi, kullanıcı davranışlarını analiz ederek platform genelindeki trendleri gözlemleyebilir.
 
 #### Kabul Kriterleri:
 - Platformda işletme performansı için raporlama yapılabilmeli.
