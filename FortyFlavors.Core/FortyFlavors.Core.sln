@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortyFlavors.Core.Api", "FortyFlavors.Core.Api\FortyFlavors.Core.Api.csproj", "{25F7864A-8032-4CAA-A727-9787611F2BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortyFlavors.Core.Application", "FortyFlavors.Core.Application\FortyFlavors.Core.Application.csproj", "{6AECCDE3-5969-408A-871F-0AAC72D95C4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortyFlavors.Core.Domain", "FortyFlavors.Core.Domain\FortyFlavors.Core.Domain.csproj", "{ED68CC36-F3ED-4CA6-AC0D-61CB7F594FD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortyFlavors.Core.Infrastructure", "FortyFlavors.Core.Infrastructure\FortyFlavors.Core.Infrastructure.csproj", "{23590212-361A-4680-9BAB-4FF71238B49A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortyFlavors.Core.Common", "FortyFlavors.Core.Common\FortyFlavors.Core.Common.csproj", "{692EB0F3-4CC0-4D3E-B80D-B0CE75DF20CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25F7864A-8032-4CAA-A727-9787611F2BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F7864A-8032-4CAA-A727-9787611F2BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F7864A-8032-4CAA-A727-9787611F2BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F7864A-8032-4CAA-A727-9787611F2BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AECCDE3-5969-408A-871F-0AAC72D95C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AECCDE3-5969-408A-871F-0AAC72D95C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AECCDE3-5969-408A-871F-0AAC72D95C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AECCDE3-5969-408A-871F-0AAC72D95C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED68CC36-F3ED-4CA6-AC0D-61CB7F594FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED68CC36-F3ED-4CA6-AC0D-61CB7F594FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED68CC36-F3ED-4CA6-AC0D-61CB7F594FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED68CC36-F3ED-4CA6-AC0D-61CB7F594FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23590212-361A-4680-9BAB-4FF71238B49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23590212-361A-4680-9BAB-4FF71238B49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23590212-361A-4680-9BAB-4FF71238B49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23590212-361A-4680-9BAB-4FF71238B49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{692EB0F3-4CC0-4D3E-B80D-B0CE75DF20CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{692EB0F3-4CC0-4D3E-B80D-B0CE75DF20CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{692EB0F3-4CC0-4D3E-B80D-B0CE75DF20CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{692EB0F3-4CC0-4D3E-B80D-B0CE75DF20CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

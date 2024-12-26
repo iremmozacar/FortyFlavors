@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "t4+ZNb5L7KA=",
+  "success": true,
+  "projectFilePath": "/Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/FortyFlavors.Core.Common.csproj",
+  "expectedPackageFiles": [
+    "/Users/iremozacar/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512"
+  ],
+  "logs": []
+}
