@@ -1,6 +1,7 @@
 /Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/bin/Debug/net8.0/FortyFlavors.Core.Common.deps.json
 /Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/bin/Debug/net8.0/FortyFlavors.Core.Common.dll
 /Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/bin/Debug/net8.0/FortyFlavors.Core.Common.pdb
+/Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/obj/Debug/net8.0/FortyFlavors.Core.Common.csproj.AssemblyReference.cache
 /Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/obj/Debug/net8.0/FortyFlavors.Core.Common.GeneratedMSBuildEditorConfig.editorconfig
 /Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/obj/Debug/net8.0/FortyFlavors.Core.Common.AssemblyInfoInputs.cache
 /Users/iremozacar/Documents/GitHub/FortyFlavors/FortyFlavors.Core/FortyFlavors.Core.Common/obj/Debug/net8.0/FortyFlavors.Core.Common.AssemblyInfo.cs

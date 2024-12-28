@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FortyFlavors.Core.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5c1aaffe63d666a57020fe25d62a1acc61edffa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a52fd4932d16fc69daa4ab70e9b68b72a7a24d7e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FortyFlavors.Core.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FortyFlavors.Core.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

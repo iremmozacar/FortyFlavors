@@ -1,3 +1,5 @@
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,7 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<DbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddControllers();
+
 var app = builder.Build();
+
+builder.Services.AddMediatR(typeof(Program));
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
