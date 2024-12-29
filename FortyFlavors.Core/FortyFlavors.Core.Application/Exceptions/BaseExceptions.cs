@@ -4,10 +4,10 @@ namespace FortyFlavors.Core.Application.Exceptions;
 
 public abstract class BaseException:Exception
 {
-    public int ErrorCode { get; }
+    public int StatusCode { get; }
 
     protected BaseException(string message, int errorCode) : base(message)
     {
-        ErrorCode = errorCode;
+        StatusCode = StatusCode;
     }
 }
