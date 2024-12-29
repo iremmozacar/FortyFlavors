@@ -1,8 +1,9 @@
 using System;
 
-namespace FortyFlavors.Core.Application.Intefaces.Others;
+namespace FortyFlavors.Core.Application.Intefaces.Infrastructure;
 
-public class IPaymentGatewayService
+public interface IPaymentGatewayService
 {
-
+    bool ProcessPayment(decimal amount, string cardNumber, string expiry, string cvv);
+    bool RefundPayment(string transactionId);
 }

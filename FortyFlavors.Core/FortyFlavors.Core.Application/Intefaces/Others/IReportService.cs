@@ -2,7 +2,7 @@ using System;
 
 namespace FortyFlavors.Core.Application.Intefaces.Others;
 
-public class IReportService
+public interface IReportService
 {
-
+    byte[] GenerateReport(string reportType, object data);
 }

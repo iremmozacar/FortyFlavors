@@ -1,8 +1,10 @@
 using System;
 
-namespace FortyFlavors.Core.Application.Intefaces.Others;
+namespace FortyFlavors.Core.Application.Intefaces.Infrastructure;
 
-public class IFileService
+public interface IFileService
 {
-
+    void SaveFile(string path, byte[] content);
+    byte[] ReadFile(string path);
+    void DeleteFile(string path);
 }

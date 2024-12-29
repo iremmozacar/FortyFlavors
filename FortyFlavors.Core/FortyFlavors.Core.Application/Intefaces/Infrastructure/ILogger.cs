@@ -1,8 +1,9 @@
 using System;
 
-namespace FortyFlavors.Core.Application.Intefaces.LoggingInterfaces;
+namespace FortyFlavors.Core.Application.Intefaces.Infrastructure;
 
-public class ILogger
+public interface ILogger
 {
-
+    void LogInfo(string message);
+    void LogError(string message, Exception ex);
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace FortyFlavors.Core.Application.Intefaces.Others;
 
-public class ISearchService
+public interface ISearchService
 {
-
+    IEnumerable<T> Search<T>(string query);
 }

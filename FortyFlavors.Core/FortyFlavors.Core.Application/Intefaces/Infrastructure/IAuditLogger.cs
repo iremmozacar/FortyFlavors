@@ -2,7 +2,7 @@ using System;
 
 namespace FortyFlavors.Core.Application.Intefaces.Infrastructure;
 
-public class IAuditLogger
+public interface IAuditLogger
 {
-
+    void LogAction(string user, string action, DateTime timestamp);
 }
