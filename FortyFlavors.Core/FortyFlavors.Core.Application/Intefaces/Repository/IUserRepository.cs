@@ -9,6 +9,7 @@ public interface IUserRepository
     User GetUserById(int userId);
     User GetUserByEmail(string email);
     IEnumerable<User> GetAllUsers();
+    IEnumerable<User> SearchUsers(string searchTerm); 
     void UpdateUser(User user);
     void DeleteUser(int userId);
 }
