@@ -10,6 +10,8 @@ public class Basket
     public int Quantity { get; private set; }
     public ICollection<BasketItem> BasketItems { get; set; }
     public User User { get; set; }
+    public DateTime CreatedAt { get; private set; }
+    public DateTime UpdatedAt { get; private set; }
 
     public Basket(Guid userId, Guid productId, int quantity)
     {
@@ -20,6 +22,8 @@ public class Basket
         UserId = userId;
         ProductId = productId;
         Quantity = quantity;
+        CreatedAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public void UpdateQuantity(int newQuantity)
@@ -27,5 +31,6 @@ public class Basket
         if (newQuantity <= 0)
             throw new ArgumentException("Yeni miktar sıfırdan büyük olmalıdır.");
         Quantity = newQuantity;
+        UpdatedAt = DateTime.UtcNow;
     }
 }

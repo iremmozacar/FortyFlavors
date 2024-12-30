@@ -10,8 +10,16 @@ public class Product
     public decimal Price { get; private set; }
     public Guid BusinessId { get; private set; }
     public int Stock { get; set; }
-    public ICollection<OrderItem> OrderItems { get; set; }
-    public ICollection<BasketItem> BasketItems { get; set; }
+    public Category Category { get; set; }
+    public int CategoryId { get; set; }
+
+    public Business Business { get; set; }
+
+    public ICollection<OrderItem>? OrderItems { get; set; }
+    public ICollection<BasketItem>? BasketItems { get; set; }
+    public ICollection<Review>? Reviews { get; set; }
+    public ICollection<Comment>? Comments { get; set; }
+    public ICollection<Likes>? Likes { get; set; }
 
     public Product(string name, string description, decimal price, Guid businessId)
     {

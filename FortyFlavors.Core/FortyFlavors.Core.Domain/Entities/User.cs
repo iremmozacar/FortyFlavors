@@ -9,6 +9,14 @@ public class User
     public string Email { get; private set; }
     public string Role { get; private set; }
 
+    public ICollection<Order>? Orders { get; set; }
+    public ICollection<Basket>? Baskets { get; set; }
+    public ICollection<Review>? Reviews { get; set; }
+    public ICollection<Message>? SentMessages { get; set; }
+    public ICollection<Message>? ReceivedMessages { get; set; }
+    public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+    public ICollection<Likes> Likes { get; set; } = new List<Likes>();
+
     public User(string name, string email, string role)
     {
         if (string.IsNullOrWhiteSpace(name))

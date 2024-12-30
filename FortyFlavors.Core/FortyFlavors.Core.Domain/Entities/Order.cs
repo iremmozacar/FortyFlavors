@@ -9,7 +9,7 @@ public class Order
     public DateTime OrderDate { get; private set; }
     public decimal TotalAmount { get; private set; }
 
-    public ICollection<OrderItem> OrderItems { get; set; }
+    public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     public User User { get; set; }
 
     public Order(Guid userId, DateTime orderDate, decimal totalAmount)

@@ -11,6 +11,7 @@ public class Campaign
     public DateTime StartDate { get; private set; }
     public DateTime EndDate { get; private set; }
     public decimal DiscountRate { get; private set; }
+    public Business Business { get; set; }
 
     public Campaign(Guid businessId, string title, string description, DateTime startDate, DateTime endDate, decimal discountRate)
     {

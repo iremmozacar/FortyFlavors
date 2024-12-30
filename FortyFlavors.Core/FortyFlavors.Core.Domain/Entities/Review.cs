@@ -10,6 +10,9 @@ public class Review
     public string Comment { get; private set; }
     public int Rating { get; private set; }
 
+    public User User { get; set; }
+    public Product Product { get; set; }
+
     public Review(Guid userId, Guid productId, string comment, int rating)
     {
         if (string.IsNullOrWhiteSpace(comment))

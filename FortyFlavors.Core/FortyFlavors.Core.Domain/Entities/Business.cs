@@ -9,8 +9,13 @@ public class Business
     public string Address { get; private set; }
     public string PhoneNumber { get; private set; }
     public Guid OwnerId { get; private set; }
+    public string Email { get; private set; }
+    public Guid? CategoryId { get; private set; }
 
-    public Business(string name, string address, string phoneNumber, Guid ownerId)
+    public ICollection<Product>? Products { get; set; }
+    public ICollection<Campaign>? Campaigns { get; set; }
+
+    public Business(string name, string address, string phoneNumber, Guid ownerId, string email, string website, Guid? categoryId)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("İsim boş bırakılamaz!");
@@ -18,25 +23,17 @@ public class Business
             throw new ArgumentException("Adres boş bırakılamaz!");
         if (string.IsNullOrWhiteSpace(phoneNumber))
             throw new ArgumentException("Telefon boş bırakılamaz!");
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email boş bırakılamaz!");
+        if (string.IsNullOrWhiteSpace(website))
+            throw new ArgumentException("Website boş bırakılamaz!");
 
         Id = Guid.NewGuid();
         Name = name;
         Address = address;
         PhoneNumber = phoneNumber;
         OwnerId = ownerId;
-    }
-
-    public void UpdateAddress(string newAddress)
-    {
-        if (string.IsNullOrWhiteSpace(newAddress))
-            throw new ArgumentException("Adres boş bırakılamaz!");
-        Address = newAddress;
-    }
-
-    public void UpdatePhoneNumber(string newPhoneNumber)
-    {
-        if (string.IsNullOrWhiteSpace(newPhoneNumber))
-            throw new ArgumentException("Numara boş bırakılamaz!");
-        PhoneNumber = newPhoneNumber;
+        Email = email;  
+        CategoryId = categoryId;
     }
 }

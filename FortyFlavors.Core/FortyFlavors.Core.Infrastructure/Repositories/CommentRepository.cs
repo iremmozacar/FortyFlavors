@@ -6,6 +6,12 @@ namespace FortyFlavors.Core.Infrastructure.Repositories;
 
 public class CommentRepository : ICommentRepository
 {
+    private readonly AppDbContext _context;
+    public CommentRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
     public void AddComment(Comment comment)
     {
         throw new NotImplementedException();
