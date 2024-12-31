@@ -1,44 +1,23 @@
-using System;
 using FortyFlavors.Core.Application.Intefaces.Repository;
 using FortyFlavors.Core.Domain.Entities;
+using FortyFlavors.Core.Infrastructure;
+using FortyFlavors.Core.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FortyFlavors.Core.Infrastructure.Repositories;
-
-public class CommentRepository : ICommentRepository
+public class CommentRepository : GenericRepository<Comment>, ICommentRepository
 {
     private readonly AppDbContext _context;
-    public CommentRepository(AppDbContext context)
+
+    public CommentRepository(AppDbContext context) : base(context)
     {
         _context = context;
     }
 
-    public void AddComment(Comment comment)
+    public async Task<IEnumerable<Comment>> GetCommentsByProductIdAsync(Guid productId)
     {
-        throw new NotImplementedException();
-    }
-
-    public void DeleteComment(int commentId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Comment GetCommentById(int commentId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Comment> GetCommentsByBusinessId(int businessId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Comment> GetCommentsByProductId(int productId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateComment(Comment comment)
-    {
-        throw new NotImplementedException();
+        return await _context.Comments.Where(c => c.ProductId == productId).ToListAsync();
     }
 }

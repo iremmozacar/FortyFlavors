@@ -1,43 +1,28 @@
-using System;
 using FortyFlavors.Core.Application.Intefaces.Repository;
 using FortyFlavors.Core.Domain.Entities;
+using FortyFlavors.Core.Infrastructure;
+using FortyFlavors.Core.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FortyFlavors.Core.Infrastructure.Repositories;
-
-public class MessageRepository : IMessageRepository
+public class MessageRepository : GenericRepository<Message>, IMessageRepository
 {
-    public void AddMessage(Message message)
+    private readonly AppDbContext _context;
+
+    public MessageRepository(AppDbContext context) : base(context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public void DeleteMessage(int messageId)
+    public async Task<IEnumerable<Message>> GetMessagesBySenderIdAsync(Guid senderId)
     {
-        throw new NotImplementedException();
+        return await _context.Messages.Where(m => m.SenderId == senderId).ToListAsync();
     }
 
-    public Message GetMessageById(int messageId)
+    public async Task<IEnumerable<Message>> GetMessagesByReceiverIdAsync(Guid receiverId)
     {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Message> GetMessagesByOrderId(int orderId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Message> GetMessagesByReceiverId(int receiverId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Message> GetMessagesBySenderId(int senderId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateMessage(Message message)
-    {
-        throw new NotImplementedException();
+        return await _context.Messages.Where(m => m.ReceiverId == receiverId).ToListAsync();
     }
 }

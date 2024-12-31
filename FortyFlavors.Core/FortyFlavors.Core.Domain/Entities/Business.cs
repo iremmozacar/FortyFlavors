@@ -15,7 +15,7 @@ public class Business
     public ICollection<Product>? Products { get; set; }
     public ICollection<Campaign>? Campaigns { get; set; }
 
-    public Business(string name, string address, string phoneNumber, Guid ownerId, string email, string website, Guid? categoryId)
+    public Business(string name, string address, string phoneNumber, Guid ownerId, string email,  Guid? categoryId)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("İsim boş bırakılamaz!");
@@ -25,8 +25,7 @@ public class Business
             throw new ArgumentException("Telefon boş bırakılamaz!");
         if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email boş bırakılamaz!");
-        if (string.IsNullOrWhiteSpace(website))
-            throw new ArgumentException("Website boş bırakılamaz!");
+     
 
         Id = Guid.NewGuid();
         Name = name;

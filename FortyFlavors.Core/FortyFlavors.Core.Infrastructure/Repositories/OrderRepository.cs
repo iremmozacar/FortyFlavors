@@ -1,43 +1,28 @@
-using System;
 using FortyFlavors.Core.Application.Intefaces.Repository;
 using FortyFlavors.Core.Domain.Entities;
+using FortyFlavors.Core.Infrastructure;
+using FortyFlavors.Core.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FortyFlavors.Core.Infrastructure.Repositories;
-
-public class OrderRepository : IOrderRepository
+public class OrderRepository : GenericRepository<Order>, IOrderRepository
 {
-    public void AddOrder(Order order)
+    private readonly AppDbContext _context;
+
+    public OrderRepository(AppDbContext context) : base(context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public void DeleteOrder(int orderId)
+    public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(Guid userId)
     {
-        throw new NotImplementedException();
+        return await _context.Orders.Where(o => o.UserId == userId).ToListAsync();
     }
 
-    public IEnumerable<Order> GetAllOrders()
+    public async Task<IEnumerable<Order>> GetOrdersByStatusAsync(string status)
     {
-        throw new NotImplementedException();
-    }
-
-    public Order GetOrderById(int orderId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Order> GetOrdersByStatus(string status)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Order> GetOrdersByUserId(int userId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateOrder(Order order)
-    {
-        throw new NotImplementedException();
+        return await _context.Orders.Where(o => o.Status == status).ToListAsync();
     }
 }

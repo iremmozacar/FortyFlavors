@@ -3,13 +3,8 @@ using FortyFlavors.Core.Domain.Entities;
 
 namespace FortyFlavors.Core.Application.Intefaces.Repository;
 
-public interface IMessageRepository
+public interface IMessageRepository : IGenericRepository<Message>
 {
-    void AddMessage(Message message);
-    Message GetMessageById(int messageId);
-    IEnumerable<Message> GetMessagesBySenderId(int senderId); 
-    IEnumerable<Message> GetMessagesByReceiverId(int receiverId); 
-    IEnumerable<Message> GetMessagesByOrderId(int orderId); 
-    void UpdateMessage(Message message);
-    void DeleteMessage(int messageId);
+    Task<IEnumerable<Message>> GetMessagesBySenderIdAsync(Guid senderId);
+    Task<IEnumerable<Message>> GetMessagesByReceiverIdAsync(Guid receiverId);
 }

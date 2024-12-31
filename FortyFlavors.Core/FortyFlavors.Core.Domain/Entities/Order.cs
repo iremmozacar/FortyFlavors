@@ -8,7 +8,7 @@ public class Order
     public Guid UserId { get; private set; }
     public DateTime OrderDate { get; private set; }
     public decimal TotalAmount { get; private set; }
-
+    public string Status { get; set; }
     public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     public User User { get; set; }
 

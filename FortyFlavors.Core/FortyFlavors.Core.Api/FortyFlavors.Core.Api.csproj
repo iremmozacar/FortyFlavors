@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.4.1" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+   <PackageReference Include="MediatR" Version="11.1.0" />
+<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
@@ -18,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FortyFlavors.Core.Application\FortyFlavors.Core.Application.csproj" />
     <ProjectReference Include="..\FortyFlavors.Core.Common\FortyFlavors.Core.Common.csproj" />
+    <ProjectReference Include="..\FortyFlavors.Core.Infrastructure\FortyFlavors.Core.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

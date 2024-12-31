@@ -3,12 +3,7 @@ using FortyFlavors.Core.Domain.Entities;
 
 namespace FortyFlavors.Core.Application.Intefaces.Repository;
 
-public interface ICommentRepository
+public interface ICommentRepository :IGenericRepository<Comment>
 {
-    void AddComment(Comment comment);
-    Comment GetCommentById(int commentId);
-    IEnumerable<Comment> GetCommentsByProductId(int productId); 
-    IEnumerable<Comment> GetCommentsByBusinessId(int businessId); 
-    void UpdateComment(Comment comment);
-    void DeleteComment(int commentId);
+    Task<IEnumerable<Comment>> GetCommentsByProductIdAsync(Guid productId);
 }

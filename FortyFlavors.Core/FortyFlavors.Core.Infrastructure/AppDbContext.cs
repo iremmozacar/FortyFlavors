@@ -23,12 +23,15 @@ namespace FortyFlavors.Core.Infrastructure;
     public DbSet<Likes> Likes{ get; set; }
     public DbSet<Review> Reviews { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
- 
 
 
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-   protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) 
+    {
+
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     
     modelBuilder.Entity<Review>()
@@ -149,13 +152,13 @@ namespace FortyFlavors.Core.Infrastructure;
         .OnDelete(DeleteBehavior.Cascade);
 
 
-    modelBuilder.Entity<UserRole>()
-        .HasData(
-            new UserRole { Id = 1, RoleName = "Admin" },
-            new UserRole { Id = 2, RoleName = "BusinessOwner" },
-            new UserRole { Id = 3, RoleName = "Customer" }
-        );
+        modelBuilder.Entity<UserRole>()
+            .HasData(
+                new UserRole { Id = Guid.NewGuid(), RoleName = "Admin" },
+                new UserRole { Id = Guid.NewGuid(), RoleName = "BusinessOwner" },
+                new UserRole { Id = Guid.NewGuid(), RoleName = "Customer" }
+            );
 
-    base.OnModelCreating(modelBuilder);
+        base.OnModelCreating(modelBuilder);
 }
 }

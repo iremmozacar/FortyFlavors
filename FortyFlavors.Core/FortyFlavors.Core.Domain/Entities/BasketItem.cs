@@ -4,9 +4,9 @@ namespace FortyFlavors.Core.Domain.Entities;
 
 public class BasketItem
 {
-    public int Id { get; set; }
-    public int BasketId { get; set; }
-    public int ProductId { get; set; }
+    public Guid Id { get; set; }
+    public Guid BasketId { get; set; }
+    public Guid ProductId { get; set; }
     public string ProductName { get; set; }
     public int Quantity { get; set; }
     public decimal UnitPrice { get; set; }

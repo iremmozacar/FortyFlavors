@@ -11,7 +11,7 @@ public class Product
     public Guid BusinessId { get; private set; }
     public int Stock { get; set; }
     public Category Category { get; set; }
-    public int CategoryId { get; set; }
+    public Guid CategoryId { get; set; }
 
     public Business Business { get; set; }
 
