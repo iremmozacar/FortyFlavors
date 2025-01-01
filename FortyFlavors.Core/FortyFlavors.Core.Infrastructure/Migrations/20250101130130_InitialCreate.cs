@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace FortyFlavors.Core.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateAfterModelChanges : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -197,13 +195,13 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                         column: x => x.ReceiverId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Messages_Users_SenderId",
                         column: x => x.SenderId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -376,16 +374,6 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                         column: x => x.ProductId1,
                         principalTable: "Products",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.InsertData(
-                table: "UserRoles",
-                columns: new[] { "Id", "RoleName" },
-                values: new object[,]
-                {
-                    { new Guid("0ebe1c44-75e2-474d-8c58-defd03e64c8d"), "Admin" },
-                    { new Guid("9bdc52ae-142a-441e-8aca-efd33d20a755"), "Customer" },
-                    { new Guid("dc1980ef-cb23-4613-830b-a4a73f1adb0d"), "BusinessOwner" }
                 });
 
             migrationBuilder.CreateIndex(

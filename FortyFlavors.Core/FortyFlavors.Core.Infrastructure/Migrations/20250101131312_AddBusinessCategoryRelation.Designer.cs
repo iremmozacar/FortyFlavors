@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FortyFlavors.Core.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241231145744_UpdateAfterModelChanges")]
-    partial class UpdateAfterModelChanges
+    [Migration("20250101131312_AddBusinessCategoryRelation")]
+    partial class AddBusinessCategoryRelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -119,7 +119,47 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Businesses");
+                });
+
+            modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.BusinessBankAccount", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AccountHolderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("BusinessId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IBAN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId");
+
+                    b.ToTable("BusinessBankAccounts");
                 });
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Campaign", b =>
@@ -493,23 +533,6 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("0ebe1c44-75e2-474d-8c58-defd03e64c8d"),
-                            RoleName = "Admin"
-                        },
-                        new
-                        {
-                            Id = new Guid("dc1980ef-cb23-4613-830b-a4a73f1adb0d"),
-                            RoleName = "BusinessOwner"
-                        },
-                        new
-                        {
-                            Id = new Guid("9bdc52ae-142a-441e-8aca-efd33d20a755"),
-                            RoleName = "Customer"
-                        });
                 });
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Basket", b =>
@@ -534,7 +557,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.HasOne("FortyFlavors.Core.Domain.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("FortyFlavors.Core.Domain.Entities.Product", null)
@@ -544,6 +567,27 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.Navigation("Basket");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Business", b =>
+                {
+                    b.HasOne("FortyFlavors.Core.Domain.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.BusinessBankAccount", b =>
+                {
+                    b.HasOne("FortyFlavors.Core.Domain.Entities.Business", "Business")
+                        .WithMany("BusinessBankAccounts")
+                        .HasForeignKey("BusinessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Business");
                 });
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Campaign", b =>
@@ -600,13 +644,13 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.HasOne("FortyFlavors.Core.Domain.Entities.User", "Receiver")
                         .WithMany("ReceivedMessages")
                         .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("FortyFlavors.Core.Domain.Entities.User", "Sender")
                         .WithMany("SentMessages")
                         .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Receiver");
@@ -636,7 +680,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.HasOne("FortyFlavors.Core.Domain.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("FortyFlavors.Core.Domain.Entities.Product", null)
@@ -693,6 +737,8 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Business", b =>
                 {
+                    b.Navigation("BusinessBankAccounts");
+
                     b.Navigation("Campaigns");
 
                     b.Navigation("Products");
