@@ -24,14 +24,14 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Basket", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Quantity")
@@ -40,7 +40,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -52,17 +52,17 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.BasketItem", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BasketId")
+                    b.Property<int>("BasketId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId1")
+                    b.Property<int?>("ProductId1")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ProductName")
@@ -88,7 +88,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Business", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -96,7 +96,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -107,7 +107,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("OwnerId")
+                    b.Property<int>("OwnerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PhoneNumber")
@@ -123,7 +123,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.BusinessBankAccount", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -139,7 +139,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("BusinessId")
+                    b.Property<int>("BusinessId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -161,11 +161,11 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Campaign", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BusinessId")
+                    b.Property<int>("BusinessId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
@@ -194,7 +194,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Category", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -213,7 +213,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Comment", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -233,10 +233,10 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.Property<bool>("IsVisible")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -250,17 +250,17 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Likes", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -274,7 +274,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Message", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -291,10 +291,10 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ReceiverId")
+                    b.Property<int>("ReceiverId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("SenderId")
+                    b.Property<int>("SenderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("SentDate")
@@ -315,7 +315,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Order", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -329,7 +329,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -341,17 +341,17 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.OrderItem", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<int>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId1")
+                    b.Property<int?>("ProductId1")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ProductName")
@@ -377,14 +377,14 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Payment", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<int>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("PaymentDate")
@@ -401,14 +401,14 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Product", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BusinessId")
+                    b.Property<int>("BusinessId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
@@ -436,7 +436,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Review", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -444,13 +444,13 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -464,7 +464,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.Transaction", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -486,7 +486,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -496,7 +496,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -519,7 +519,7 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
 
             modelBuilder.Entity("FortyFlavors.Core.Domain.Entities.UserRole", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 

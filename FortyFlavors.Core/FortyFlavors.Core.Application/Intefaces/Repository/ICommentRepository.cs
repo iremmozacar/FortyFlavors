@@ -3,7 +3,7 @@ using FortyFlavors.Core.Domain.Entities;
 
 namespace FortyFlavors.Core.Application.Intefaces.Repository;
 
-public interface ICommentRepository :IGenericRepository<Comment>
+public interface ICommentRepository : IGenericRepository<Comment>
 {
-    Task<IEnumerable<Comment>> GetCommentsByProductIdAsync(Guid productId);
+    Task<IEnumerable<Comment>> GetCommentsByProductIdAsync(int productId);
 }

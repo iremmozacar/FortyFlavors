@@ -4,23 +4,24 @@ namespace FortyFlavors.Core.Domain.Entities;
 
 public class Payment
 {
-    public Guid Id { get; private set; }
-    public Guid OrderId { get; private set; }
+    public int Id { get; private set; }
+    public int OrderId { get; private set; }
     public DateTime PaymentDate { get; private set; }
     public decimal Amount { get; private set; }
     public string PaymentStatus { get; private set; }
+    public int UserId { get; set; }
 
-    public Payment(Guid orderId, DateTime paymentDate, decimal amount, string paymentStatus)
+    public Payment(int orderId, DateTime paymentDate, decimal amount, string paymentStatus, int userId)
     {
-      
         if (string.IsNullOrWhiteSpace(paymentStatus))
             throw new ArgumentException("Ödeme durumu belirtilmelidir.");
 
-        Id = Guid.NewGuid();
+        Id = Id;
         OrderId = orderId;
         PaymentDate = paymentDate;
         Amount = amount;
         PaymentStatus = paymentStatus;
+        UserId = userId;
     }
 
     public void UpdateStatus(string newStatus)

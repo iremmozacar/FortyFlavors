@@ -16,7 +16,7 @@ public class CommentRepository : GenericRepository<Comment>, ICommentRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Comment>> GetCommentsByProductIdAsync(Guid productId)
+    public async Task<IEnumerable<Comment>> GetCommentsByProductIdAsync(int productId)
     {
         return await _context.Comments.Where(c => c.ProductId == productId).ToListAsync();
     }

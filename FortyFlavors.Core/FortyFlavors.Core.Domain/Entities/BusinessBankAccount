@@ -4,8 +4,8 @@ namespace FortyFlavors.Core.Domain.Entities
 {
     public class BusinessBankAccount
     {
-        public Guid Id { get; set; } 
-        public Guid BusinessId { get; set; } 
+        public int Id { get; set; } 
+        public int BusinessId { get; set; } 
         public string BankName { get; set; } 
         public string AccountNumber { get; set; } 
         public string IBAN { get; set; } 

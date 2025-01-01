@@ -16,7 +16,7 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(Guid userId)
+    public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(int userId)
     {
         return await _context.Orders.Where(o => o.UserId == userId).ToListAsync();
     }

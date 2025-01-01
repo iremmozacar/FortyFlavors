@@ -4,7 +4,7 @@ namespace FortyFlavors.Core.Domain.Entities;
 
 public class User
 {
-    public Guid Id { get; private set; }
+    public int Id { get; private set; }
     public string Name { get; private set; }
     public string Email { get; private set; }
     public string Role { get; private set; }
@@ -26,7 +26,7 @@ public class User
         if (string.IsNullOrWhiteSpace(role))
             throw new ArgumentException("Rol boş bırakılamaz!");
 
-        Id = Guid.NewGuid();
+        Id = Id;
         Name = name;
         Email = email;
         Role = role;

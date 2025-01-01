@@ -4,7 +4,7 @@ namespace FortyFlavors.Core.Domain.Entities;
 
 public class Category
 {
-    public Guid Id { get; private set; }
+    public int Id { get; private set; }
     public string Name { get; private set; }
     public string Description { get; private set; }
     public ICollection<Product> Products { get; set; }
@@ -14,7 +14,7 @@ public class Category
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Kategori adı boş olamaz.");
 
-        Id = Guid.NewGuid();
+        Id = Id;
         Name = name;
         Description = description;
     }

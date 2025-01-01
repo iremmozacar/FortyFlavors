@@ -1,3 +1,4 @@
+using FortyFlavors.Core.Application.Interfaces;
 using FortyFlavors.Core.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
 
 builder.Services.AddControllers();
 

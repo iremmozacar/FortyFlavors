@@ -23,8 +23,8 @@ namespace FortyFlavors.Core.Infrastructure.Migrations
                 name: "BusinessBankAccounts",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BusinessId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "uniqueidentifier", nullable: false),
+                    BusinessId = table.Column<int>(type: "uniqueidentifier", nullable: false),
                     BankName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AccountNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IBAN = table.Column<string>(type: "nvarchar(max)", nullable: false),

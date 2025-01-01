@@ -4,23 +4,23 @@ namespace FortyFlavors.Core.Domain.Entities;
 
 public class Review
 {
-    public Guid Id { get; private set; }
-    public Guid UserId { get; private set; }
-    public Guid ProductId { get; private set; }
+    public int Id { get; private set; }
+    public int UserId { get; private set; }
+    public int ProductId { get; private set; }
     public string Comment { get; private set; }
     public int Rating { get; private set; }
 
     public User User { get; set; }
     public Product Product { get; set; }
 
-    public Review(Guid userId, Guid productId, string comment, int rating)
+    public Review(int userId, int productId, string comment, int rating)
     {
         if (string.IsNullOrWhiteSpace(comment))
             throw new ArgumentException("Yorum boş olamaz.");
         if (rating < 1 || rating > 5)
             throw new ArgumentException("Puan 1 ile 5 arasında olmalıdır.");
 
-        Id = Guid.NewGuid();
+        Id = Id;
         UserId = userId;
         ProductId = productId;
         Comment = comment;

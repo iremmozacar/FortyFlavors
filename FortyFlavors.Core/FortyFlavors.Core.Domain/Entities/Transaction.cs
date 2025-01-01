@@ -4,15 +4,15 @@ namespace FortyFlavors.Core.Domain.Entities;
 
 public class Transaction
 {
-    public Guid Id { get; private set; }
-    public Guid UserId { get; private set; }
+    public int Id { get; private set; }
+    public int UserId { get; private set; }
     public decimal Amount { get; private set; }
     public string TransactionType { get; private set; }
     public DateTime TransactionDate { get; private set; }
     public string ReferenceNumber { get; private set; }
     public string TrackingNumber { get; private set; }
 
-    public Transaction(Guid userId, decimal amount, string transactionType, DateTime transactionDate, string referenceNumber, string trackingNumber)
+    public Transaction(int userId, decimal amount, string transactionType, DateTime transactionDate, string referenceNumber, string trackingNumber)
     {
         if (amount <= 0)
             throw new ArgumentException("İşlem tutarı sıfırdan büyük olmalıdır.");
@@ -23,7 +23,7 @@ public class Transaction
         if (string.IsNullOrWhiteSpace(trackingNumber))
             throw new ArgumentException("Takip numarası belirtilmelidir.");
 
-        Id = Guid.NewGuid();
+        Id = Id;
         UserId = userId;
         Amount = amount;
         TransactionType = transactionType;
