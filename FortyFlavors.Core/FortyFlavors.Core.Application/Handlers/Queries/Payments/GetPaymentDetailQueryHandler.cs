@@ -1,6 +1,7 @@
 using FortyFlavors.Core.Application.DTOs;
 using FortyFlavors.Core.Application.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 public class GetPaymentsDetailQuery : IRequest<List<PaymentResponseDto>>
 {

@@ -12,7 +12,7 @@ namespace FortyFlavors.Core.Application.Handlers.Queries
 {
     public class GetUserOrdersQuery : IRequest<List<OrderDto>>
     {
-        public int UserId { get; set; } // UserId'yi int olarak değiştirdik
+        public int UserId { get; set; } 
         public GetUserOrdersQuery(int userId)
         {
             UserId = userId;
@@ -31,7 +31,7 @@ namespace FortyFlavors.Core.Application.Handlers.Queries
         public async Task<List<OrderDto>> Handle(GetUserOrdersQuery request, CancellationToken cancellationToken)
         {
             var orders = await _context.Orders
-                .Where(o => o.UserId == request.UserId) // int ile eşleştirme
+                .Where(o => o.UserId == request.UserId) 
                 .Select(o => new OrderDto
                 {
                     Id = o.Id,

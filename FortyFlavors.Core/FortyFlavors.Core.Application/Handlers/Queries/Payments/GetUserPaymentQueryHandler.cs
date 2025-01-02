@@ -1,38 +1,33 @@
+using System;
 using FortyFlavors.Core.Application.DTOs;
 using FortyFlavors.Core.Application.Interfaces;
+using FortyFlavors.Core.Application.Queries.Payments;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
-public class GetUserPaymentQuery : IRequest<List<PaymentResponseDto>>
-{
-    public int UserId { get; set; }
+namespace FortyFlavors.Core.Application.Handlers.Queries;
 
-    public GetUserPaymentQuery(int userId)
-    {
-        UserId = userId;
-    }
-}
-
-public class GetUserPaymentQueryHandler : IRequestHandler<GetUserPaymentQuery, List<PaymentResponseDto>>
+public class GetUserPaymentsQueryHandler : IRequestHandler<GetUserPaymentsQuery, List<PaymentResponseDto>>
 {
     private readonly IAppDbContext _context;
 
-    public GetUserPaymentQueryHandler(IAppDbContext context)
+    public GetUserPaymentsQueryHandler(IAppDbContext context)
     {
         _context = context;
     }
-    public async Task<List<PaymentResponseDto>> Handle(GetUserPaymentQuery request, CancellationToken cancellationToken)
+
+    public async Task<List<PaymentResponseDto>> Handle(GetUserPaymentsQuery request, CancellationToken cancellationToken)
     {
         var payments = await _context.Payments
             .Where(p => p.UserId == request.UserId)
-            .Select(p => new PaymentResponseDto
-            {
-                Id = p.Id,
-                OrderId = p.OrderId,
-                Amount = p.Amount,
-                PaymentDate = p.PaymentDate,
-                PaymentStatus = p.PaymentStatus,
-                UserId = p.UserId 
-            })
+            .Select(p => new PaymentResponseDto(
+                p.Id,
+                p.OrderId,
+                p.PaymentDate,
+                p.Amount,
+                p.PaymentStatus,
+                p.UserId
+            ))
             .ToListAsync(cancellationToken);
 
         return payments;
