@@ -1142,7 +1142,8 @@
           "FortyFlavors.Core.Common": "1.0.0",
           "FortyFlavors.Core.Domain": "1.0.0",
           "MediatR": "11.1.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0"
         },
         "runtime": {
           "FortyFlavors.Core.Application.dll": {

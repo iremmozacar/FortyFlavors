@@ -8,11 +8,17 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     private readonly AppDbContext _context;
     private readonly DbSet<T> _dbSet;
+    private DbContext context;
 
     public GenericRepository(AppDbContext context)
     {
         _context = context;
         _dbSet = context.Set<T>();
+    }
+
+    public GenericRepository(DbContext context)
+    {
+        this.context = context;
     }
 
     public async Task<IEnumerable<T>> GetAllAsync()

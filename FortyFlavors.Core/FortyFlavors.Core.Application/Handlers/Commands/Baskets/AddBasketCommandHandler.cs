@@ -5,7 +5,7 @@ using FortyFlavors.Core.Domain.Entities;
 using MediatR;
 using BasketEntity = FortyFlavors.Core.Domain.Entities.Basket;
 
-namespace FortyFlavors.Core.Application.Commands.Basket
+namespace FortyFlavors.Core.Application.Commands.BasketOperations
 {
     public class AddBasketCommand : IRequest<int>
     {
@@ -32,9 +32,8 @@ namespace FortyFlavors.Core.Application.Commands.Basket
 
         public async Task<int> Handle(AddBasketCommand request, CancellationToken cancellationToken)
         {
-            var basket = new Basket
+            var basket = new BasketEntity(request.UserId, request.ProductId, request.Quantity)
             {
-                UserId = request.UserId,
                 BasketItems = new List<BasketItem>
                 {
                     new BasketItem
