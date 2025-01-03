@@ -12,9 +12,10 @@ namespace FortyFlavors.Core.Domain.Entities
         public string Status { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
         public User User { get; set; }
-
+        public ICollection<OrderStatus> OrderStatuses { get; set; } = new List<OrderStatus>();
+        public ICollection<Payment> Payments { get; set; } = new List<Payment>();
         public Order() { }
-
+        public bool IsDelivered { get; set; }
 
         public Order(int userId, DateTime orderDate, decimal totalAmount)
         {

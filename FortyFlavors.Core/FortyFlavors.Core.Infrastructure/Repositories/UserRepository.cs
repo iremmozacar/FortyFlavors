@@ -1,43 +1,28 @@
 using System;
 using FortyFlavors.Core.Application.Intefaces.Repository;
 using FortyFlavors.Core.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FortyFlavors.Core.Infrastructure.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository : GenericRepository<User>, IUserRepository
 {
-    public void AddUser(User user)
+    private readonly AppDbContext _context;
+
+    public UserRepository(AppDbContext context) : base(context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public void DeleteUser(int userId)
+    public async Task<User> GetUserByEmailAsync(string email)
     {
-        throw new NotImplementedException();
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
     }
 
-    public IEnumerable<User> GetAllUsers()
+    public async Task<IEnumerable<User>> SearchUsersAsync(string searchTerm)
     {
-        throw new NotImplementedException();
-    }
-
-    public User GetUserByEmail(string email)
-    {
-        throw new NotImplementedException();
-    }
-
-    public User GetUserById(int userId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<User> SearchUsers(string searchTerm)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateUser(User user)
-    {
-        throw new NotImplementedException();
+        return await _context.Users
+            .Where(u => u.Name.Contains(searchTerm) || u.Email.Contains(searchTerm))
+            .ToListAsync();
     }
 }

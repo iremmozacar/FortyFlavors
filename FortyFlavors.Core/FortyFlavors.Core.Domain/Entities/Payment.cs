@@ -10,7 +10,8 @@ public class Payment
     public decimal Amount { get; private set; }
     public string PaymentStatus { get; private set; }
     public int UserId { get; set; }
-
+    public string PaymentMethod { get; private set; }
+    public Order Order { get; set; }
     public Payment(int orderId, DateTime paymentDate, decimal amount, string paymentStatus, int userId)
     {
         if (string.IsNullOrWhiteSpace(paymentStatus))

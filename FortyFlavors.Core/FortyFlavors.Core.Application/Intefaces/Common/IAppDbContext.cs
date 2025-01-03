@@ -22,7 +22,7 @@ namespace FortyFlavors.Core.Application.Interfaces
         DbSet<BusinessBankAccount> BusinessBankAccounts { get; set; }
         DbSet<Message> Messages { get; set; }
         DbSet<Likes> Likes { get; set; }
-        DbSet<Transaction> Transactions { get; set; }
+        DbSet<OrderStatus> OrderStatuses { get; set; }
         DbSet<UserRole> UserRoles { get; set; }
 
 

@@ -1,43 +1,29 @@
 using System;
 using FortyFlavors.Core.Application.Intefaces.Repository;
 using FortyFlavors.Core.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FortyFlavors.Core.Infrastructure.Repositories;
-
-public class ProductRepository : IProductRepository
+public class ProductRepository : GenericRepository<Product>, IProductRepository
 {
-    public void AddProduct(Product product)
+    private readonly AppDbContext _context;
+
+    public ProductRepository(AppDbContext context) : base(context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public void DeleteProduct(int productId)
+    public async Task<IEnumerable<Product>> GetProductsByCategoryIdAsync(int categoryId)
     {
-        throw new NotImplementedException();
+        return await _context.Products
+            .Where(p => p.CategoryId == categoryId)
+            .ToListAsync();
     }
 
-    public IEnumerable<Product> GetAllProducts()
+    public async Task<IEnumerable<Product>> SearchProductsAsync(string searchTerm)
     {
-        throw new NotImplementedException();
-    }
-
-    public Product GetProductById(int productId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Product> GetProductsByCategoryId(int categoryId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Product> SearchProducts(string searchTerm)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateProduct(Product product)
-    {
-        throw new NotImplementedException();
+        return await _context.Products
+            .Where(p => p.Name.Contains(searchTerm) || p.Description.Contains(searchTerm))
+            .ToListAsync();
     }
 }

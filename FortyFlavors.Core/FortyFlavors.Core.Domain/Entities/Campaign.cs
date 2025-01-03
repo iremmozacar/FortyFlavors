@@ -11,7 +11,7 @@ namespace FortyFlavors.Core.Domain.Entities
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public decimal DiscountRate { get; private set; }
-
+        public bool IsActive => DateTime.UtcNow >= StartDate && DateTime.UtcNow <= EndDate;
         public Business Business { get; set; }
 
         public Campaign(int businessId, string title, string description, DateTime startDate, DateTime endDate, decimal discountRate)

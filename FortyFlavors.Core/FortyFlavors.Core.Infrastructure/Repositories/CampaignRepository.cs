@@ -1,5 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using FortyFlavors.Core.Application.Intefaces.Repository;
-
 using FortyFlavors.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,9 +16,9 @@ namespace FortyFlavors.Core.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Campaign>> GetActiveCampaignsAsync()
+        public async Task<IEnumerable<Campaign>> GetCampaignsByBusinessIdAsync(int businessId)
         {
-            return await _context.Campaigns.Where(c => c.StartDate <= DateTime.UtcNow && c.EndDate >= DateTime.UtcNow).ToListAsync();
+            return await _context.Campaigns.Where(c => c.BusinessId == businessId).ToListAsync();
         }
     }
 }

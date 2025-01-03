@@ -1,43 +1,25 @@
 using System;
 using FortyFlavors.Core.Application.Intefaces.Repository;
 using FortyFlavors.Core.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FortyFlavors.Core.Infrastructure.Repositories;
-
-public class PaymentRepository : IPaymentRepository
+public class PaymentRepository : GenericRepository<Payment>, IPaymentRepository
 {
-    public void AddPayment(Payment payment)
+    private readonly AppDbContext _context;
+
+    public PaymentRepository(AppDbContext context) : base(context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public void DeletePayment(int paymentId)
+    public async Task<Payment> GetPaymentByOrderIdAsync(int orderId)
     {
-        throw new NotImplementedException();
+        return await _context.Payments.FirstOrDefaultAsync(p => p.OrderId == orderId);
     }
 
-    public IEnumerable<Payment> GetAllPayments()
+    public async Task<IEnumerable<Payment>> GetPaymentsByUserIdAsync(int userId)
     {
-        throw new NotImplementedException();
-    }
-
-    public Payment GetPaymentById(int paymentId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Payment GetPaymentByOrderId(int orderId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Payment> GetPaymentsByUserId(int userId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdatePayment(Payment payment)
-    {
-        throw new NotImplementedException();
+        return await _context.Payments.Where(p => p.UserId == userId).ToListAsync();
     }
 }

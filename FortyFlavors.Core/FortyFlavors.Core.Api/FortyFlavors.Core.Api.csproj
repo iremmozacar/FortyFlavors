@@ -25,4 +25,8 @@
     <ProjectReference Include="..\FortyFlavors.Core.Infrastructure\FortyFlavors.Core.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Scripts/" />
+  </ItemGroup>
+
 </Project>

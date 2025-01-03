@@ -16,7 +16,7 @@ namespace FortyFlavors.Core.Domain.Entities
 
         public ICollection<Product>? Products { get; set; }
         public ICollection<Campaign>? Campaigns { get; set; }
-        public ICollection<BusinessBankAccount>? BusinessBankAccounts { get; set; } // Navigasyon Özelliği
+        public ICollection<BusinessBankAccount>? BusinessBankAccounts { get; set; }
 
         public Business(string name, string address, string phoneNumber, int ownerId, string email, int? categoryId)
         {

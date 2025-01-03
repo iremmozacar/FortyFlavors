@@ -12,7 +12,7 @@ public class Product
     public int Stock { get; set; }
     public Category Category { get; set; }
     public int CategoryId { get; set; }
-
+    public string ImageUrl { get; set; }
     public Business Business { get; set; }
 
     public ICollection<OrderItem>? OrderItems { get; set; }
