@@ -22,10 +22,13 @@ builder.Services.AddInfrastructure();
 
 builder.Services.AddControllers();
 
-var app = builder.Build();
 
-builder.Services.AddMediatR(typeof(Program));
-builder.Services.AddControllers();
+
+builder.Services.AddMediatR(typeof(Program).Assembly);
+
+
+
+var app = builder.Build();
 
 
 if (app.Environment.IsDevelopment())

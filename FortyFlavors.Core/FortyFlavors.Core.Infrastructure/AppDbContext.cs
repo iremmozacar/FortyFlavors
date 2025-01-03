@@ -9,7 +9,7 @@ namespace FortyFlavors.Core.Infrastructure
     public class AppDbContext : DbContext, IAppDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-        
+
         public DbSet<User> Users { get; set; }
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -28,10 +28,9 @@ namespace FortyFlavors.Core.Infrastructure
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<BusinessBankAccount> BusinessBankAccounts { get; set; }
 
-     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+        
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Comments)
                 .WithOne(c => c.User)
@@ -44,33 +43,6 @@ namespace FortyFlavors.Core.Infrastructure
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.SentMessages)
-                .WithOne(m => m.Sender)
-                .HasForeignKey(m => m.SenderId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.ReceivedMessages)
-                .WithOne(m => m.Receiver)
-                .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-     
-            modelBuilder.Entity<BusinessBankAccount>()
-                .HasOne(bba => bba.Business)
-                .WithMany(b => b.BusinessBankAccounts)
-                .HasForeignKey(bba => bba.BusinessId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-  
-            modelBuilder.Entity<Business>()
-                .HasOne(b => b.Category)
-                .WithMany()
-                .HasForeignKey(b => b.CategoryId)
-                .OnDelete(DeleteBehavior.SetNull);
-
-
             modelBuilder.Entity<BasketItem>()
                 .HasOne(bi => bi.Basket)
                 .WithMany(b => b.BasketItems)
@@ -79,11 +51,11 @@ namespace FortyFlavors.Core.Infrastructure
 
             modelBuilder.Entity<BasketItem>()
                 .HasOne(bi => bi.Product)
-                .WithMany()
+                .WithMany(p => p.BasketItems)
                 .HasForeignKey(bi => bi.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-    
+
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Order)
                 .WithMany(o => o.OrderItems)
@@ -92,44 +64,41 @@ namespace FortyFlavors.Core.Infrastructure
 
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Product)
-                .WithMany()
+                .WithMany(p => p.OrderItems)
                 .HasForeignKey(oi => oi.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Product>()
-                .HasOne(p => p.Category)
-                .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategoryId)
-                .OnDelete(DeleteBehavior.Cascade);
+      
+            modelBuilder.Entity<Campaign>()
+                .Property(c => c.DiscountRate)
+                .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<Product>()
-                .HasOne(p => p.Business)
-                .WithMany(b => b.Products)
-                .HasForeignKey(p => p.BusinessId)
-                .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Comment>()
-                .HasOne(c => c.Product)
-                .WithMany(p => p.Comments)
-                .HasForeignKey(c => c.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<BasketItem>()
+                .Property(bi => bi.UnitPrice)
+                .HasColumnType("decimal(18,2)");
 
-       
-            modelBuilder.Entity<Review>()
-                .HasOne(r => r.Product)
-                .WithMany(p => p.Reviews)
-                .HasForeignKey(r => r.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<OrderItem>()
+                .Property(oi => oi.UnitPrice)
+                .HasColumnType("decimal(18,2)");
 
-           
-            modelBuilder.Entity<Likes>()
-                .HasOne(l => l.Product)
-                .WithMany(p => p.Likes)
-                .HasForeignKey(l => l.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Order>()
+                .Property(o => o.TotalAmount)
+                .HasColumnType("decimal(18,2)");
 
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Sender)
+                .WithMany(u => u.SentMessages)
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Receiver)
+                .WithMany(u => u.ReceivedMessages)
+                .HasForeignKey(m => m.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict);
+                
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }
