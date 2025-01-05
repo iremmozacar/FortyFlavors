@@ -1,6 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
-using FortyFlavors.Core.Application.Interfaces;
+using FortyFlavors.Core.Application.Intefaces.Common;
 using MediatR;
 
 namespace FortyFlavors.Core.Application.Commands.Orders

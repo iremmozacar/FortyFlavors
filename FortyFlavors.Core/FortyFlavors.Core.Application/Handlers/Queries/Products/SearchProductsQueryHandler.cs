@@ -1,5 +1,5 @@
 using FortyFlavors.Core.Application.DTOs;
-using FortyFlavors.Core.Application.Interfaces;
+using FortyFlavors.Core.Application.Intefaces.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

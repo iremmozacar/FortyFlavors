@@ -1,4 +1,5 @@
-using FortyFlavors.Core.Application.Interfaces;
+using FortyFlavors.Core.Application.Intefaces.Common;
+
 using FortyFlavors.Core.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,8 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-
-builder.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddDbContext<IAppDbContext, AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
 
 builder.Services.AddInfrastructure();
 

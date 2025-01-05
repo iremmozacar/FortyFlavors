@@ -1,29 +1,34 @@
 using Microsoft.EntityFrameworkCore;
 using FortyFlavors.Core.Domain.Entities;
+using FortyFlavors.Core.Application.Intefaces.Common;
+
 
 namespace FortyFlavors.Core.Infrastructure
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext, IAppDbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
         public DbSet<User> Users { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Business> Businesses { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
-        public DbSet<Business> Businesses { get; set; }
-        public DbSet<BusinessBankAccount> BusinessBankAccounts { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Likes> Likes { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<OrderStatus> OrderStatuses { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<Product> Products { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<BusinessBankAccount> BusinessBankAccounts { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Likes> Likes { get; set; }
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken) => base.SaveChangesAsync(cancellationToken);
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

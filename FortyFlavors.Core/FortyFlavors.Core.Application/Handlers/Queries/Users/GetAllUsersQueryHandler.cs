@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using FortyFlavors.Core.Application.DTOs;
-using FortyFlavors.Core.Application.Interfaces;
+
 using FortyFlavors.Core.Application.DTOs.DtoS;
+using FortyFlavors.Core.Application.Intefaces.Common;
 
 namespace FortyFlavors.Core.Application.Handlers.Queries
 {

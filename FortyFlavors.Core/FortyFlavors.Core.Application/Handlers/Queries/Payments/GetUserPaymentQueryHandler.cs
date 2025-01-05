@@ -1,6 +1,6 @@
 using System;
 using FortyFlavors.Core.Application.DTOs;
-using FortyFlavors.Core.Application.Interfaces;
+using FortyFlavors.Core.Application.Intefaces.Common;
 using FortyFlavors.Core.Application.Queries.Payments;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

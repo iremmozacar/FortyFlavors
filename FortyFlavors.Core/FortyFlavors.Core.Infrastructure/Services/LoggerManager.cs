@@ -1,5 +1,4 @@
 using FortyFlavors.Core.Application.Intefaces.Infrastructure;
-using FortyFlavors.Core.Application.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace FortyFlavors.Core.Infrastructure.Services
