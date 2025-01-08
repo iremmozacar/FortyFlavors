@@ -26,4 +26,10 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
             .Where(p => p.Name.Contains(searchTerm) || p.Description.Contains(searchTerm))
             .ToListAsync();
     }
+    public async Task<IEnumerable<Product>> GetByCategoryIdAsync(int categoryId)
+    {
+        return await _context.Products
+            .Where(p => p.CategoryId == categoryId)
+            .ToListAsync();
+    }
 }

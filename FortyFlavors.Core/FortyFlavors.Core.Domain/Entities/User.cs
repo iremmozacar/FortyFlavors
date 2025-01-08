@@ -4,9 +4,30 @@ namespace FortyFlavors.Core.Domain.Entities;
 
 public class User
 {
+    public User() { }
+
+    public User(string name, string email, string password, string role)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("İsim boş bırakılamaz!");
+        if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            throw new ArgumentException("Geçersiz e-posta!");
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Şifre boş bırakılamaz!");
+        if (string.IsNullOrWhiteSpace(role))
+            throw new ArgumentException("Rol boş bırakılamaz!");
+
+        Name = name;
+        Email = email;
+        Password = password;
+        Role = role;
+    }
+
     public int Id { get; private set; }
     public string Name { get; private set; }
+    public string Username { get; set; }
     public string Email { get; private set; }
+    public string Password { get; private set; }
     public string Role { get; private set; }
 
     public ICollection<Order>? Orders { get; set; }
@@ -16,21 +37,6 @@ public class User
     public ICollection<Message>? ReceivedMessages { get; set; }
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     public ICollection<Likes> Likes { get; set; } = new List<Likes>();
-
-    public User(string name, string email, string role)
-    {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("İsim boş bırakılamaz!");
-        if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
-            throw new ArgumentException("Geçersiz e-mail!");
-        if (string.IsNullOrWhiteSpace(role))
-            throw new ArgumentException("Rol boş bırakılamaz!");
-
-        Id = Id;
-        Name = name;
-        Email = email;
-        Role = role;
-    }
 
     public void UpdateEmail(string newEmail)
     {
@@ -45,6 +51,10 @@ public class User
             throw new ArgumentException("Rol boş bırakılamaz!");
         Role = newRole;
     }
+    public void SetPassword(string password)
+    {
+        if (string.IsNullOrWhiteSpace(password))
+            throw new ArgumentException("Şifre boş bırakılamaz!");
+        Password = password;
+    }
 }
-
-

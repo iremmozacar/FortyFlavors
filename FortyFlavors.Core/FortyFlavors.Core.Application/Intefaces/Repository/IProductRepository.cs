@@ -7,4 +7,6 @@ public interface IProductRepository : IGenericRepository<Product>
 {
     Task<IEnumerable<Product>> GetProductsByCategoryIdAsync(int categoryId);
     Task<IEnumerable<Product>> SearchProductsAsync(string searchTerm);
+
+    Task<IEnumerable<Product>> GetByCategoryIdAsync(int categoryId);
 }
