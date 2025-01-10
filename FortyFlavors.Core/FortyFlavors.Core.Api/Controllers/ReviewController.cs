@@ -22,5 +22,11 @@ namespace FortyFlavors.Core.Api.Controllers
             await _reviewService.AddReviewAsync(review);
             return Ok("Yorum eklendi");
         }
+        [HttpGet("{productId}")]
+        public async Task<IActionResult> GetReviewsByProduct(int productId)
+        {
+            var reviews = await _reviewService.GetReviewsByProductAsync(productId);
+            return Ok(reviews);
+        }
     }
 }

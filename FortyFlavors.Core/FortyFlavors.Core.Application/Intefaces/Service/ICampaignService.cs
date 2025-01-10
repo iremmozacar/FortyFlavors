@@ -8,4 +8,5 @@ public interface ICampaignService
     Task CreateCampaignAsync(CampaignDto campaign);
     Task<IEnumerable<CampaignDto>> GetActiveCampaignsAsync();
     Task EndCampaignAsync(int campaignId);
+    Task<IEnumerable<CampaignDto>> GetAllAsync();
 }

@@ -21,6 +21,8 @@ public class MappingProfile : Profile
         CreateMap<CategoryCreateDto, Category>();
         CreateMap<CategoryUpdateDto, Category>();
 
+        CreateMap<Campaign, CampaignDto>();
+        CreateMap<CampaignDto, Campaign>();
 
         CreateMap<Order, OrderDto>();
         CreateMap<OrderDto, Order>();
@@ -33,6 +35,6 @@ public class MappingProfile : Profile
 
 
         CreateMap<UserRegisterDto, User>()
-            .ForMember(dest => dest.Password, opt => opt.Ignore()); // Şifreyi manuel hash edeceğiz
+            .ForMember(dest => dest.Password, opt => opt.Ignore()); 
     }
 }

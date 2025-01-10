@@ -15,12 +15,23 @@ namespace FortyFlavors.Core.Api.Controllers
         {
             _campaignService = campaignService;
         }
-
+        [HttpGet]
+        public async Task<IActionResult> GetAllCampaigns()
+        {
+            var campaigns = await _campaignService.GetAllAsync();
+            return Ok(campaigns);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateCampaign([FromBody] CampaignDto campaign)
         {
             await _campaignService.CreateCampaignAsync(campaign);
             return Ok("Kampanya oluşturuldu");
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> EndCampaign(int id)
+        {
+            await _campaignService.EndCampaignAsync(id);
+            return NoContent();
         }
     }
 }

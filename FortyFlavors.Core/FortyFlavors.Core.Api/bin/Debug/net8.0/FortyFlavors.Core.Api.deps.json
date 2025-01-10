@@ -1227,6 +1227,8 @@
       },
       "FortyFlavors.Core.Infrastructure/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FortyFlavors.Core.Application": "1.0.0",
           "FortyFlavors.Core.Common": "1.0.0",
           "FortyFlavors.Core.Domain": "1.0.0",

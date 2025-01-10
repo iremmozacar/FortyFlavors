@@ -35,5 +35,13 @@ namespace FortyFlavors.Core.Api.Controllers
             await _productService.CreateAsync(product);
             return Created("", productDto);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var product = await _productService.GetByIdAsync(id);
+            if (product == null) return NotFound("Ürün bulunamadı.");
+            return Ok(product);
+        }
+        
     }
 }

@@ -7,4 +7,5 @@ namespace FortyFlavors.Core.Application.Intefaces.Service;
 public interface IReviewService : IService<ReviewDto>
 {
     Task AddReviewAsync(ReviewDto review);
+    Task<IEnumerable<ReviewDto>> GetReviewsByProductAsync(int productId);
 }
